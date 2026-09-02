@@ -3580,8 +3580,3 @@ body {
   }
 
 }
-@media (max-width: 480px) {
-  .splash-screen .splash-logo {
-    transform: scale(.70) !important;
-  }
-}
