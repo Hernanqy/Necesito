@@ -196,18 +196,7 @@ function App() {
           <img className="splash-icon splash-icon-4" src="/pintor.png" alt="" />
           <img className="splash-icon splash-icon-5" src="/mecanico.png" alt="" />
           <img className="splash-icon splash-icon-6" src="/herrero.png" alt="" />
-                  <img
-            className="splash-special-icon splash-herramientas"
-            src="/herramientas.png"
-            alt=""
-          />
-
-          <img
-            className="splash-special-icon splash-maquina"
-            src="/maquinaDeCoser.png"
-            alt=""
-          />
-</div>
+        </div>
 
         <div className="splash-logo">
           <img
