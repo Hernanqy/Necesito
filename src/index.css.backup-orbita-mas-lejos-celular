@@ -3514,11 +3514,11 @@ body {
 @media (max-width: 480px) {
 
   .splash-screen::before {
-    width: 540px !important;
-    height: 540px !important;
+    width: 450px !important;
+    height: 450px !important;
 
-    margin-left: -270px !important;
-    margin-top: -270px !important;
+    margin-left: -225px !important;
+    margin-top: -225px !important;
   }
 
 }
