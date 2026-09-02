@@ -1674,361 +1674,137 @@ body {
   background: transparent !important;
 }
 
-/* NECESITO - iconos flotantes del Splash */
-
-.splash-screen {
-  position: relative;
-  overflow: hidden;
-}
-
-.splash-floating-icons {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.splash-icon {
-  position: absolute;
-  width: 58px;
-  height: 58px;
-  object-fit: contain;
-  opacity: 0;
-  filter: drop-shadow(0 5px 10px rgba(40, 100, 170, 0.14));
-}
-
-/* Plomero */
-.splash-icon-1 {
-  left: 7%;
-  top: 23%;
-  animation: necesitoFloat1 15s ease-in-out infinite;
-}
-
-/* Electricista */
-.splash-icon-2 {
-  right: 7%;
-  top: 22%;
-  animation: necesitoFloat2 18s ease-in-out 1s infinite;
-}
-
-/* Carpintero */
-.splash-icon-3 {
-  left: 9%;
-  bottom: 23%;
-  animation: necesitoFloat3 17s ease-in-out 2s infinite;
-}
-
-/* Pintor */
-.splash-icon-4 {
-  right: 8%;
-  bottom: 23%;
-  animation: necesitoFloat4 16s ease-in-out 3s infinite;
-}
-
-/* Mecánico */
-.splash-icon-5 {
-  left: 22%;
-  top: 12%;
-  animation: necesitoFloat5 20s ease-in-out 4s infinite;
-}
-
-/* Herrero */
-.splash-icon-6 {
-  right: 21%;
-  bottom: 11%;
-  animation: necesitoFloat6 19s ease-in-out 5s infinite;
-}
-
-/* Movimientos suaves y diferentes */
-
-@keyframes necesitoFloat1 {
-  0%, 18% {
-    opacity: 0;
-    transform: translate(0,0) scale(.8) rotate(-4deg);
-  }
-  30% {
-    opacity: .65;
-    transform: translate(22px,12px) scale(.92) rotate(2deg);
-  }
-  45% {
-    opacity: .48;
-    transform: translate(48px,34px) scale(.86) rotate(6deg);
-  }
-  62% {
-    opacity: .65;
-    transform: translate(28px,65px) scale(.94) rotate(-2deg);
-  }
-  78% {
-    opacity: .38;
-    transform: translate(-5px,45px) scale(.82) rotate(-7deg);
-  }
-  90%,100% {
-    opacity: 0;
-    transform: translate(0,0) scale(.8) rotate(-4deg);
-  }
-}
-
-@keyframes necesitoFloat2 {
-  0%, 16% {
-    opacity: 0;
-    transform: translate(0,0) scale(.8) rotate(4deg);
-  }
-  29% {
-    opacity: .62;
-    transform: translate(-20px,10px) scale(.9) rotate(-2deg);
-  }
-  46% {
-    opacity: .45;
-    transform: translate(-52px,4px) scale(.84) rotate(-7deg);
-  }
-  63% {
-    opacity: .66;
-    transform: translate(-35px,45px) scale(.93) rotate(3deg);
-  }
-  79% {
-    opacity: .38;
-    transform: translate(-4px,63px) scale(.8) rotate(8deg);
-  }
-  91%,100% {
-    opacity: 0;
-    transform: translate(0,0) scale(.8) rotate(4deg);
-  }
-}
-
-@keyframes necesitoFloat3 {
-  0%, 17% {
-    opacity: 0;
-    transform: translate(0,0) scale(.8) rotate(-5deg);
-  }
-  31% {
-    opacity: .63;
-    transform: translate(25px,-12px) scale(.91) rotate(2deg);
-  }
-  48% {
-    opacity: .45;
-    transform: translate(58px,-38px) scale(.84) rotate(8deg);
-  }
-  65% {
-    opacity: .65;
-    transform: translate(38px,-68px) scale(.93) rotate(-1deg);
-  }
-  80% {
-    opacity: .38;
-    transform: translate(5px,-42px) scale(.8) rotate(-7deg);
-  }
-  92%,100% {
-    opacity: 0;
-    transform: translate(0,0) scale(.8) rotate(-5deg);
-  }
-}
-
-@keyframes necesitoFloat4 {
-  0%, 15% {
-    opacity: 0;
-    transform: translate(0,0) scale(.8) rotate(5deg);
-  }
-  29% {
-    opacity: .64;
-    transform: translate(-24px,-10px) scale(.92) rotate(-2deg);
-  }
-  47% {
-    opacity: .44;
-    transform: translate(-55px,-28px) scale(.84) rotate(-8deg);
-  }
-  64% {
-    opacity: .66;
-    transform: translate(-38px,5px) scale(.94) rotate(2deg);
-  }
-  79% {
-    opacity: .38;
-    transform: translate(-10px,40px) scale(.8) rotate(7deg);
-  }
-  92%,100% {
-    opacity: 0;
-    transform: translate(0,0) scale(.8) rotate(5deg);
-  }
-}
-
-@keyframes necesitoFloat5 {
-  0%, 20% {
-    opacity: 0;
-    transform: translate(0,0) scale(.8) rotate(-4deg);
-  }
-  33% {
-    opacity: .58;
-    transform: translate(18px,16px) scale(.9) rotate(2deg);
-  }
-  50% {
-    opacity: .42;
-    transform: translate(46px,38px) scale(.84) rotate(7deg);
-  }
-  67% {
-    opacity: .61;
-    transform: translate(70px,12px) scale(.93) rotate(-2deg);
-  }
-  82% {
-    opacity: .35;
-    transform: translate(48px,-14px) scale(.8) rotate(-7deg);
-  }
-  93%,100% {
-    opacity: 0;
-    transform: translate(0,0) scale(.8) rotate(-4deg);
-  }
-}
-
-@keyframes necesitoFloat6 {
-  0%, 19% {
-    opacity: 0;
-    transform: translate(0,0) scale(.8) rotate(5deg);
-  }
-  32% {
-    opacity: .62;
-    transform: translate(-18px,-14px) scale(.92) rotate(-2deg);
-  }
-  49% {
-    opacity: .43;
-    transform: translate(-46px,-35px) scale(.84) rotate(-8deg);
-  }
-  66% {
-    opacity: .64;
-    transform: translate(-68px,-10px) scale(.94) rotate(2deg);
-  }
-  82% {
-    opacity: .38;
-    transform: translate(-40px,18px) scale(.8) rotate(8deg);
-  }
-  93%,100% {
-    opacity: 0;
-    transform: translate(0,0) scale(.8) rotate(5deg);
-  }
-}
-
-/* Logo por encima */
-
-.splash-logo {
-  position: relative;
-  z-index: 3;
-}
-
-.splash-loading {
-  position: relative;
-  z-index: 3;
-}
-
-/* Mobile */
-
-@media (max-width: 480px) {
-  .splash-icon {
-    width: 48px;
-    height: 48px;
-  }
-
-  .splash-icon-1 { left: 3%; }
-  .splash-icon-2 { right: 3%; }
-  .splash-icon-3 { left: 5%; }
-  .splash-icon-4 { right: 5%; }
-  .splash-icon-5 { left: 15%; }
-  .splash-icon-6 { right: 15%; }
-}
-
 /* =========================================================
-   NECESITO... — TODAS LAS CATEGORÍAS
+   NECESITO... — SPLASH ANIMADO OPCIÓN 4
+   Íconos suaves, pausados y con recorridos orgánicos
    ========================================================= */
 
-.all-categories-page {
-  min-height: 100vh;
-  padding-bottom: 96px;
+.splash-screen {
+    position: relative !important;
+    overflow: hidden !important;
 }
 
-.all-categories-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 18px 18px 10px;
+/* Capa animada detrás del logo */
+.splash-screen::before {
+    content: "";
+    position: absolute;
+    inset: -8%;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900'%3E
+
+    %3Cg fill='none' stroke='%2363B9EA' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' opacity='.34'%3E
+
+        %3Cg transform='translate(140 180)'%3E
+            %3Cpath d='M0-18c-20 0-36 16-36 36 0 28 36 55 36 55s36-27 36-55C36-2 20-18 0-18z'/%3E
+            %3Ccircle cx='0' cy='18' r='10'/%3E
+            %3CanimateTransform attributeName='transform' type='translate'
+                dur='16s' repeatCount='indefinite'
+                values='140 180;210 150;170 220;260 260;140 180'
+                keyTimes='0;.22;.48;.72;1'
+                calcMode='spline'
+                keySplines='.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1'/%3E
+        %3C/g%3E
+
+        %3Cg transform='translate(960 170)'%3E
+            %3Cpath d='M-32 10h64v42h-64z'/%3E
+            %3Cpath d='M-42 10L0-20 42 10'/%3E
+            %3Cpath d='M-10 52V28h20v24'/%3E
+            %3CanimateTransform attributeName='transform' type='translate'
+                dur='19s' begin='1.8s' repeatCount='indefinite'
+                values='960 170;900 210;1000 240;930 140;960 170'
+                keyTimes='0;.25;.52;.78;1'
+                calcMode='spline'
+                keySplines='.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1'/%3E
+        %3C/g%3E
+
+        %3Cg transform='translate(155 610)'%3E
+            %3Cpath d='M-34-5c10 0 16-8 16-18 0-7 6-12 13-12 8 0 13 5 13 12 0 10 7 18 17 18'/%3E
+            %3Cpath d='M25-22c12 0 20 8 20 20 0 12-8 20-20 20'/%3E
+            %3Cpath d='M25 18c-12 0-20-8-20-20'/%3E
+            %3CanimateTransform attributeName='transform' type='translate'
+                dur='17s' begin='3.5s' repeatCount='indefinite'
+                values='155 610;240 560;190 670;110 650;155 610'
+                keyTimes='0;.28;.55;.78;1'
+                calcMode='spline'
+                keySplines='.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1'/%3E
+        %3C/g%3E
+
+        %3Cg transform='translate(1020 570)'%3E
+            %3Cpath d='M0-38L-16 2h14l-12 38L18-8H2z'/%3E
+            %3CanimateTransform attributeName='transform' type='translate'
+                dur='14s' begin='2.7s' repeatCount='indefinite'
+                values='1020 570;950 620;1045 690;1080 530;1020 570'
+                keyTimes='0;.3;.56;.8;1'
+                calcMode='spline'
+                keySplines='.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1'/%3E
+        %3C/g%3E
+
+        %3Cg transform='translate(340 390)'%3E
+            %3Cpath d='M-30-18h60M-18-30v60M18-30v60M-30 18h60'/%3E
+            %3Ccircle cx='0' cy='0' r='38'/%3E
+            %3CanimateTransform attributeName='transform' type='translate'
+                dur='21s' begin='4.4s' repeatCount='indefinite'
+                values='340 390;410 350;460 430;350 470;340 390'
+                keyTimes='0;.24;.5;.76;1'
+                calcMode='spline'
+                keySplines='.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1'/%3E
+        %3C/g%3E
+
+        %3Cg transform='translate(850 390)'%3E
+            %3Cpath d='M-20-8L8-36 36-8 8 20z'/%3E
+            %3Cpath d='M8 20v22'/%3E
+            %3Cpath d='M-8-18L8-2 24-18'/%3E
+            %3CanimateTransform attributeName='transform' type='translate'
+                dur='18s' begin='5.2s' repeatCount='indefinite'
+                values='850 390;790 330;730 420;820 480;850 390'
+                keyTimes='0;.27;.54;.8;1'
+                calcMode='spline'
+                keySplines='.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1'/%3E
+        %3C/g%3E
+
+    %3C/g%3E
+
+    %3Cg fill='%2363B9EA' opacity='.16'%3E
+        %3Ccircle cx='220' cy='90' r='6'/%3E
+        %3Ccircle cx='1040' cy='320' r='5'/%3E
+        %3Ccircle cx='470' cy='700' r='7'/%3E
+        %3Ccircle cx='720' cy='120' r='5'/%3E
+        %3Ccircle cx='740' cy='750' r='6'/%3E
+    %3C/g%3E
+
+    %3C/svg%3E");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 1;
 }
 
-.all-categories-header > div {
-  flex: 1;
+/* Todo lo que ya existe queda por encima */
+.splash-screen > * {
+    position: relative;
+    z-index: 2;
 }
 
-.all-categories-header > div > span {
-  display: block;
-  font-size: 12px;
-  color: #6d8ca8;
-  margin-bottom: 2px;
-}
-
-.all-categories-header h1 {
-  margin: 0;
-  font-size: 22px;
-}
-
-.all-categories-content {
-  padding: 10px 18px 30px;
-}
-
-.categories-intro {
-  margin: 8px 0 20px;
-  color: #6f8498;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.all-categories-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.all-category-card {
-  border: 0;
-  border-radius: 18px;
-  background: rgba(255,255,255,.92);
-  box-shadow: 0 8px 22px rgba(60,110,160,.09);
-  min-height: 128px;
-  padding: 14px 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.all-category-card:active {
-  transform: scale(.96);
-}
-
-.all-category-card > span:last-child {
-  font-size: 12px;
-  font-weight: 700;
-  color: #30485d;
-  text-align: center;
-  line-height: 1.2;
-}
-
-.all-category-icon {
-  width: 62px;
-  height: 62px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.all-category-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-@media (max-width: 480px) {
-  .all-categories-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .all-category-card {
-    min-height: 125px;
-  }
+/* Un pequeño halo detrás del logo */
+.splash-screen::after {
+    content: "";
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,.72) 0%,
+        rgba(255,255,255,.34) 42%,
+        rgba(255,255,255,0) 72%
+    );
+    z-index: 1;
+    pointer-events: none;
 }

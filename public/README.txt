@@ -1,0 +1,3 @@
+Iconos separados de la plancha original de Necesito...
+Cada PNG conserva el fondo visual de su tarjeta y NO incluye el texto del rubro.
+Esto permite usarlos como recursos individuales dentro de la app.

@@ -188,16 +188,6 @@ function App() {
   if (showSplash) {
     return (
       <div className="splash-screen">
-
-        <div className="splash-floating-icons" aria-hidden="true">
-          <img className="splash-icon splash-icon-1" src="/plomero.png" alt="" />
-          <img className="splash-icon splash-icon-2" src="/electricista.png" alt="" />
-          <img className="splash-icon splash-icon-3" src="/carpintero.png" alt="" />
-          <img className="splash-icon splash-icon-4" src="/pintor.png" alt="" />
-          <img className="splash-icon splash-icon-5" src="/mecanico.png" alt="" />
-          <img className="splash-icon splash-icon-6" src="/herrero.png" alt="" />
-        </div>
-
         <div className="splash-logo">
           <img
             src="/logo-necesito.png"
