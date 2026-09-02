@@ -3522,34 +3522,3 @@ body {
   }
 
 }
-
-/* =========================================================
-   AJUSTE LOGO + ORBITA PARA CELULAR
-   ========================================================= */
-
-/* Logo un poco más pequeño */
-.splash-screen .splash-logo {
-  transform: scale(.82) !important;
-  transform-origin: center center !important;
-  position: relative !important;
-  z-index: 20 !important;
-}
-
-/* Orbita más grande que el logo pero dentro de pantalla */
-@media (max-width: 480px) {
-
-  .splash-screen::before {
-    width: 500px !important;
-    height: 500px !important;
-
-    margin-left: -250px !important;
-    margin-top: -250px !important;
-
-    left: 50% !important;
-    top: 50% !important;
-  }
-
-  .splash-screen .splash-logo {
-    transform: scale(.82) !important;
-  }
-}
