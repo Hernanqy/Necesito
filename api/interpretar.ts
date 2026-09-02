@@ -1,13 +1,13 @@
-Ôªøexport default async function handler(req: any, res: any) {
+export default async function handler(req: any, res: any) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "M√©todo no permitido" });
+    return res.status(405).json({ error: "MÈtodo no permitido" });
   }
 
   try {
     const { texto } = req.body ?? {};
 
     if (!texto || typeof texto !== "string") {
-      return res.status(400).json({ error: "Falta el texto de b√∫squeda" });
+      return res.status(400).json({ error: "Falta el texto de b˙squeda" });
     }
 
     const apiKey = process.env.GEMINI_API_KEY;
@@ -19,24 +19,24 @@
     }
 
     const prompt = `
-Sos el sistema de interpretaci√≥n de b√∫squeda de una aplicaci√≥n llamada Necesito...
-La aplicaci√≥n busca productos y servicios locales en Olavarr√≠a, Argentina.
+Sos el sistema de interpretaciÛn de b˙squeda de una aplicaciÛn llamada Necesito...
+La aplicaciÛn busca productos y servicios locales en OlavarrÌa, Argentina.
 
-Analiz√° la necesidad escrita por el usuario y devolv√© SOLO JSON v√°lido con esta estructura:
+Analiz· la necesidad escrita por el usuario y devolvÈ SOLO JSON v·lido con esta estructura:
 
 {
   "tipo": "producto" | "servicio" | "general",
-  "rubro": "Ferreter√≠a" | "Plomer√≠a" | "Electricidad" | "Pintura" | "Carpinter√≠a" | "Mec√°nica" | "Cerrajer√≠a" | "Jardiner√≠a" | "Otros",
+  "rubro": "FerreterÌa" | "PlomerÌa" | "Electricidad" | "Pintura" | "CarpinterÌa" | "Mec·nica" | "CerrajerÌa" | "JardinerÌa" | "Otros",
   "termino": "palabra o frase corta para buscar",
   "confianza": 0
 }
 
 Reglas:
-- "termino" debe ser una b√∫squeda sencilla que pueda utilizar una aplicaci√≥n.
+- "termino" debe ser una b˙squeda sencilla que pueda utilizar una aplicaciÛn.
 - Si el usuario pide un profesional, usar tipo "servicio".
 - Si pide una cosa para comprar, usar tipo "producto".
 - Si no queda claro, usar "general".
-- confianza debe ser un n√∫mero entero entre 0 y 100.
+- confianza debe ser un n˙mero entero entre 0 y 100.
 - No agregues explicaciones fuera del JSON.
 
 Consulta del usuario:
@@ -44,7 +44,7 @@ Consulta del usuario:
 `;
 
     const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=" +
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=" +
         encodeURIComponent(apiKey),
       {
         method: "POST",
@@ -85,7 +85,7 @@ Consulta del usuario:
 
     if (!text) {
       return res.status(502).json({
-        error: "Gemini no devolvi√≥ una respuesta v√°lida",
+        error: "Gemini no devolviÛ una respuesta v·lida",
       });
     }
 
@@ -95,7 +95,7 @@ Consulta del usuario:
       resultado = JSON.parse(text);
     } catch {
       return res.status(502).json({
-        error: "La respuesta de Gemini no fue JSON v√°lido",
+        error: "La respuesta de Gemini no fue JSON v·lido",
         raw: text,
       });
     }
@@ -109,3 +109,4 @@ Consulta del usuario:
     });
   }
 }
+
