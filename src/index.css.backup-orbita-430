@@ -3539,11 +3539,11 @@ body {
 @media (max-width: 480px) {
 
   .splash-screen::before {
-    width: 430px !important;
-    height: 430px !important;
+    width: 500px !important;
+    height: 500px !important;
 
-    margin-left: -215px !important;
-    margin-top: -215px !important;
+    margin-left: -250px !important;
+    margin-top: -250px !important;
 
     left: 50% !important;
     top: 50% !important;
