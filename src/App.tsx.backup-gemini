@@ -136,7 +136,6 @@ function icon(type: string) {
 
 function App() {
   const [showSplash, setShowSplash] = useState(true)
-  const [isSearching, setIsSearching] = useState(false)
   const [search, setSearch] = useState('')
   const [query, setQuery] = useState('')
   const [view, setView] = useState<'home' | 'results' | 'product' | 'service' | 'business'>('home')
@@ -226,42 +225,17 @@ function App() {
     )
   }
 
-  async function performSearch(value = search) {
+  function performSearch(value = search) {
     const clean = value.trim()
 
-    if (!clean || isSearching) return
+    if (!clean) return
 
-    setIsSearching(true)
-
-    try {
-      const response = await fetch('/api/interpretar', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ texto: clean }),
-      })
-
-      if (!response.ok) throw new Error('AI search failed')
-
-      const interpreted = await response.json()
-      const interpretedTerm = typeof interpreted?.termino === 'string' ? interpreted.termino.trim() : ''
-
-      setSearch(clean)
-      setQuery(interpretedTerm || clean)
-      setView('results')
-      setSelectedProduct(null)
-      setSelectedService(null)
-      setSelectedBusiness(null)
-    } catch (error) {
-      console.error('AI search error:', error)
-      setSearch(clean)
-      setQuery(clean)
-      setView('results')
-      setSelectedProduct(null)
-      setSelectedService(null)
-      setSelectedBusiness(null)
-    } finally {
-      setIsSearching(false)
-    }
+    setSearch(clean)
+    setQuery(clean)
+    setView('results')
+    setSelectedProduct(null)
+    setSelectedService(null)
+    setSelectedBusiness(null)
   }
 
   function goHome() {
