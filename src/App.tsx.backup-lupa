@@ -768,7 +768,7 @@ function App() {
                 }
               }}
               placeholder="Escribí lo que buscás..."
-            />            <button type="button" className="search-submit" onClick={() => performSearch()} aria-label="Buscar">{icon('search')}</button>
+            />
           </div>
 
           <button className="location-button">
