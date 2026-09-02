@@ -1,0 +1,1088 @@
+import { useMemo, useState } from "react";
+import {
+  ArrowLeft,
+  Search,
+  MapPin,
+  Phone,
+  MessageCircle,
+  Navigation,
+  Clock,
+  Star,
+  Wrench,
+  Droplets,
+  Zap,
+  PaintRoller,
+  Grid2X2,
+  UserRound,
+  Heart,
+  Bell,
+  Store,
+  Share2,
+} from "lucide-react";
+
+type Product = {
+  id: number;
+  name: string;
+  brand: string;
+  price: number;
+  status: "Disponible" | "Consultar disponibilidad";
+  business: string;
+  category: string;
+  distance: number;
+  address: string;
+  hours: string;
+  stock?: number;
+  updated: string;
+};
+
+type Service = {
+  id: number;
+  name: string;
+  specialty: string;
+  rating: number;
+  status: "Disponible hoy" | "Consultar disponibilidad";
+  business: string;
+  category: string;
+  distance: number;
+  address: string;
+  hours: string;
+  updated: string;
+};
+
+type Business = {
+  name: string;
+  category: string;
+  rating: number;
+  address: string;
+  distance: number;
+  hours: string;
+  phone: string;
+  whatsapp: string;
+};
+
+const businesses: Business[] = [
+  {
+    name: "Ferretería Todo Casa",
+    category: "Ferretería",
+    rating: 4.6,
+    address: "Rivadavia 3225, Olavarría",
+    distance: 1.2,
+    hours: "Lunes a sábados 8:30 a 19:00",
+    phone: "2284 42-1234",
+    whatsapp: "2284 42-1234",
+  },
+  {
+    name: "Ferretería Galarza",
+    category: "Ferretería",
+    rating: 4.3,
+    address: "España 3103, Olavarría",
+    distance: 2.1,
+    hours: "Lunes a sábados 8:30 a 19:30",
+    phone: "2284 43-5678",
+    whatsapp: "2284 43-5678",
+  },
+  {
+    name: "Ferretería Industrial",
+    category: "Ferretería",
+    rating: 4.7,
+    address: "Alberdi 2800, Olavarría",
+    distance: 2.4,
+    hours: "Lunes a viernes 8:00 a 18:00",
+    phone: "2284 41-9876",
+    whatsapp: "2284 41-9876",
+  },
+];
+
+const products: Product[] = [
+  {
+    id: 1,
+    name: 'Llave francesa 12"',
+    brand: "Stanley",
+    price: 25000,
+    status: "Disponible",
+    business: "Ferretería Todo Casa",
+    category: "Ferretería",
+    distance: 1.2,
+    address: "Rivadavia 3225, Olavarría",
+    hours: "Lunes a sábados 8:30 a 19:00",
+    stock: 3,
+    updated: "hace 2 horas",
+  },
+  {
+    id: 2,
+    name: 'Llave francesa 12"',
+    brand: "Bremen",
+    price: 23500,
+    status: "Consultar disponibilidad",
+    business: "Ferretería Galarza",
+    category: "Ferretería",
+    distance: 2.1,
+    address: "España 3103, Olavarría",
+    hours: "Lunes a sábados 8:30 a 19:30",
+    updated: "hace 1 día",
+  },
+  {
+    id: 3,
+    name: "Llave combinada",
+    brand: "Bahco",
+    price: 18500,
+    status: "Disponible",
+    business: "Ferretería Industrial",
+    category: "Ferretería",
+    distance: 2.4,
+    address: "Alberdi 2800, Olavarría",
+    hours: "Lunes a viernes 8:00 a 18:00",
+    stock: 8,
+    updated: "hace 3 horas",
+  },
+  {
+    id: 4,
+    name: "Taladro percutor",
+    brand: "Bosch",
+    price: 185000,
+    status: "Disponible",
+    business: "Ferretería Todo Casa",
+    category: "Ferretería",
+    distance: 1.2,
+    address: "Rivadavia 3225, Olavarría",
+    hours: "Lunes a sábados 8:30 a 19:00",
+    stock: 2,
+    updated: "hace 3 horas",
+  },
+  {
+    id: 5,
+    name: "Pinza universal",
+    brand: "Stanley",
+    price: 12500,
+    status: "Disponible",
+    business: "Ferretería Galarza",
+    category: "Ferretería",
+    distance: 2.1,
+    address: "España 3103, Olavarría",
+    hours: "Lunes a sábados 8:30 a 19:30",
+    stock: 8,
+    updated: "hace 1 día",
+  },
+];
+
+const services: Service[] = [
+  {
+    id: 1,
+    name: "Juan Pérez",
+    specialty: "Plomería general",
+    rating: 4.8,
+    status: "Disponible hoy",
+    business: "Juan Pérez Plomería",
+    category: "Plomería",
+    distance: 1.4,
+    address: "Olavarría",
+    hours: "Lunes a sábados 8:00 a 20:00",
+    updated: "hace 1 hora",
+  },
+  {
+    id: 2,
+    name: "Servicios López",
+    specialty: "Plomería y gas",
+    rating: 4.6,
+    status: "Disponible hoy",
+    business: "Servicios López",
+    category: "Plomería",
+    distance: 2.1,
+    address: "Olavarría",
+    hours: "Lunes a sábados 8:00 a 19:00",
+    updated: "hace 4 horas",
+  },
+  {
+    id: 3,
+    name: "MN Plomería",
+    specialty: "Plomería general",
+    rating: 4.5,
+    status: "Consultar disponibilidad",
+    business: "MN Plomería",
+    category: "Plomería",
+    distance: 2.7,
+    address: "Olavarría",
+    hours: "Lunes a viernes 8:00 a 18:00",
+    updated: "hace 1 día",
+  },
+];
+
+function normalize(text: string) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function getSearchTerms(query: string) {
+  const normalized = normalize(query);
+
+  const aliases: Record<string, string[]> = {
+    plomero: ["plomero", "plomeria"],
+    plomera: ["plomera", "plomeria"],
+    gasista: ["gasista", "gas"],
+    gas: ["gasista", "gas"],
+    electricista: ["electricista", "electricidad"],
+    electricidad: ["electricista", "electricidad"],
+    pintor: ["pintor", "pintura"],
+    pintura: ["pintor", "pintura"],
+    mecanico: ["mecanico", "mecanica"],
+    mecanica: ["mecanico", "mecanica"],
+    cerrajero: ["cerrajero", "cerrajeria"],
+    cerrajeria: ["cerrajero", "cerrajeria"],
+    carpintero: ["carpintero", "carpinteria"],
+    carpinteria: ["carpintero", "carpinteria"],
+    albanil: ["albanil", "albanileria"],
+    jardinero: ["jardinero", "jardineria"],
+  };
+
+  const words = normalized
+    .split(/\s+/)
+    .filter((word) => word.length > 2);
+
+  const expanded: string[] = [];
+
+  words.forEach((word) => {
+    expanded.push(word);
+
+    if (aliases[word]) {
+      expanded.push(...aliases[word]);
+    }
+  });
+
+  return [...new Set(expanded)];
+}
+
+function formatPrice(price: number) {
+  return new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+    maximumFractionDigits: 0,
+  }).format(price);
+}
+
+function App() {
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
+  const [showResults, setShowResults] = useState(false);
+
+  const [selectedProduct, setSelectedProduct] =
+    useState<Product | null>(null);
+
+  const [selectedService, setSelectedService] =
+    useState<Service | null>(null);
+
+  const [selectedBusiness, setSelectedBusiness] =
+    useState<Business | null>(null);
+
+  const filteredProducts = useMemo(() => {
+    if (!query.trim()) return [];
+
+    const words = getSearchTerms(query);
+
+    return products.filter((product) => {
+      const text = normalize(
+        [
+          product.name,
+          product.brand,
+          product.business,
+          product.category,
+        ].join(" "),
+      );
+
+      return words.some((word) => text.includes(word));
+    });
+  }, [query]);
+
+  const filteredServices = useMemo(() => {
+    if (!query.trim()) return [];
+
+    const words = getSearchTerms(query);
+
+    return services.filter((service) => {
+      const text = normalize(
+        [
+          service.name,
+          service.specialty,
+          service.business,
+          service.category,
+        ].join(" "),
+      );
+
+      return words.some((word) => text.includes(word));
+    });
+  }, [query]);
+
+  const totalResults =
+    filteredProducts.length + filteredServices.length;
+
+  function handleSearch() {
+    const cleanSearch = search.trim();
+
+    if (!cleanSearch) return;
+
+    setQuery(cleanSearch);
+    setShowResults(true);
+    setSelectedProduct(null);
+    setSelectedService(null);
+    setSelectedBusiness(null);
+  }
+
+  function handleKeyDown(
+    event: React.KeyboardEvent<HTMLInputElement>,
+  ) {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  }
+
+  function searchCategory(category: string) {
+    setSearch(category);
+    setQuery(category);
+    setShowResults(true);
+  }
+
+  function goHome() {
+    setShowResults(false);
+    setQuery("");
+    setSearch("");
+    setSelectedProduct(null);
+    setSelectedService(null);
+    setSelectedBusiness(null);
+  }
+
+  function goBackToResults() {
+    setSelectedProduct(null);
+    setSelectedService(null);
+    setSelectedBusiness(null);
+  }
+
+  function openBusiness(name: string) {
+    const business = businesses.find(
+      (item) => item.name === name,
+    );
+
+    if (business) {
+      setSelectedProduct(null);
+      setSelectedService(null);
+      setSelectedBusiness(business);
+    }
+  }
+
+  if (selectedBusiness) {
+    const businessProducts = products.filter(
+      (product) =>
+        product.business === selectedBusiness.name,
+    );
+
+    return (
+      <div className="app">
+        <main className="detail-page">
+          <header className="detail-header">
+            <button
+              className="back-button"
+              onClick={goBackToResults}
+            >
+              <ArrowLeft size={20} />
+            </button>
+
+            <span>Comercio</span>
+
+            <button className="header-action">
+              <Share2 size={19} />
+            </button>
+          </header>
+
+          <section className="business-page-content">
+            <div className="business-category-icon">
+              <Store size={38} />
+            </div>
+
+            <p className="business-category">
+              {selectedBusiness.category}
+            </p>
+
+            <h1>{selectedBusiness.name}</h1>
+
+            <div className="business-rating">
+              <Star size={16} fill="currentColor" />
+              <strong>{selectedBusiness.rating}</strong>
+              <span>Valoración</span>
+            </div>
+
+            <div className="business-info">
+              <div className="business-info-row">
+                <MapPin size={19} />
+                <div>
+                  <strong>
+                    {selectedBusiness.distance} km
+                  </strong>
+                  <span>{selectedBusiness.address}</span>
+                </div>
+              </div>
+
+              <div className="business-info-row">
+                <Clock size={19} />
+                <div>
+                  <strong>Horario</strong>
+                  <span>{selectedBusiness.hours}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="business-actions">
+              <button className="primary-action">
+                <Navigation size={18} />
+                Cómo llegar
+              </button>
+
+              <button className="secondary-action">
+                <MessageCircle size={18} />
+                WhatsApp
+              </button>
+            </div>
+
+            {businessProducts.length > 0 && (
+              <section className="business-products">
+                <div className="section-heading">
+                  <h2>Productos</h2>
+                  <span>{businessProducts.length}</span>
+                </div>
+
+                <div className="business-product-list">
+                  {businessProducts.map((product) => (
+                    <article
+                      key={product.id}
+                      className="business-product"
+                      onClick={() =>
+                        setSelectedProduct(product)
+                      }
+                    >
+                      <div className="small-product-icon">
+                        <Wrench size={21} />
+                      </div>
+
+                      <div className="business-product-info">
+                        <h3>{product.name}</h3>
+                        <p>{product.brand}</p>
+                        <strong>
+                          {formatPrice(product.price)}
+                        </strong>
+                      </div>
+
+                      <span className="product-status">
+                        {product.status === "Disponible"
+                          ? "Disponible"
+                          : "Consultar"}
+                      </span>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            )}
+          </section>
+        </main>
+
+        <BottomNav />
+      </div>
+    );
+  }
+
+  if (selectedProduct) {
+    return (
+      <div className="app">
+        <main className="detail-page">
+          <header className="detail-header">
+            <button
+              className="back-button"
+              onClick={goBackToResults}
+            >
+              <ArrowLeft size={20} />
+            </button>
+
+            <span>Producto</span>
+
+            <button className="header-action">
+              <Heart size={20} />
+            </button>
+          </header>
+
+          <section className="detail-content">
+            <div className="product-visual">
+              <Wrench size={52} />
+            </div>
+
+            <div className="detail-status">
+              {selectedProduct.status}
+            </div>
+
+            <h1>{selectedProduct.name}</h1>
+
+            <p className="detail-brand">
+              {selectedProduct.brand}
+            </p>
+
+            <div className="detail-price">
+              {formatPrice(selectedProduct.price)}
+            </div>
+
+            <p className="updated">
+              Actualizado {selectedProduct.updated}
+            </p>
+
+            <div className="detail-divider" />
+
+            <div className="business-detail">
+              <button
+                className="business-name-button"
+                onClick={() =>
+                  openBusiness(selectedProduct.business)
+                }
+              >
+                <Store size={18} />
+                {selectedProduct.business}
+              </button>
+
+              <div className="rating-row">
+                <Star size={16} fill="currentColor" />
+                <span>4,6</span>
+              </div>
+
+              <div className="detail-row">
+                <MapPin size={18} />
+                <div>
+                  <strong>
+                    {selectedProduct.distance} km
+                  </strong>
+                  <span>{selectedProduct.address}</span>
+                </div>
+              </div>
+
+              <div className="detail-row">
+                <Clock size={18} />
+                <div>
+                  <strong>Horario</strong>
+                  <span>{selectedProduct.hours}</span>
+                </div>
+              </div>
+
+              {selectedProduct.stock !== undefined && (
+                <div className="stock">
+                  <span>●</span>
+                  {selectedProduct.stock} unidades informadas
+                </div>
+              )}
+            </div>
+
+            <div className="detail-actions">
+              <button className="primary-action">
+                <Navigation size={18} />
+                Cómo llegar
+              </button>
+
+              <button className="secondary-action">
+                <MessageCircle size={18} />
+                Contactar
+              </button>
+            </div>
+          </section>
+        </main>
+
+        <BottomNav />
+      </div>
+    );
+  }
+
+  if (selectedService) {
+    return (
+      <div className="app">
+        <main className="detail-page">
+          <header className="detail-header">
+            <button
+              className="back-button"
+              onClick={goBackToResults}
+            >
+              <ArrowLeft size={20} />
+            </button>
+
+            <span>Servicio</span>
+
+            <button className="header-action">
+              <Heart size={20} />
+            </button>
+          </header>
+
+          <section className="detail-content">
+            <div className="service-visual">
+              <Wrench size={48} />
+            </div>
+
+            <div className="detail-status">
+              {selectedService.status}
+            </div>
+
+            <h1>{selectedService.name}</h1>
+
+            <p className="detail-brand">
+              {selectedService.specialty}
+            </p>
+
+            <div className="service-rating">
+              <Star size={18} fill="currentColor" />
+              <strong>{selectedService.rating}</strong>
+              <span>Muy bien valorado</span>
+            </div>
+
+            <p className="updated">
+              Actualizado {selectedService.updated}
+            </p>
+
+            <div className="detail-divider" />
+
+            <div className="business-detail">
+              <h2>{selectedService.business}</h2>
+
+              <div className="detail-row">
+                <MapPin size={18} />
+                <div>
+                  <strong>
+                    {selectedService.distance} km
+                  </strong>
+                  <span>{selectedService.address}</span>
+                </div>
+              </div>
+
+              <div className="detail-row">
+                <Clock size={18} />
+                <div>
+                  <strong>Horario</strong>
+                  <span>{selectedService.hours}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="service-list">
+              <h3>Servicios</h3>
+
+              <div className="service-tags">
+                <span>✓ Reparaciones</span>
+                <span>✓ Pérdidas de agua</span>
+                <span>✓ Instalaciones</span>
+                <span>✓ Mantenimiento</span>
+              </div>
+            </div>
+
+            <div className="detail-actions">
+              <button className="primary-action">
+                <MessageCircle size={18} />
+                WhatsApp
+              </button>
+
+              <button className="secondary-action">
+                <Phone size={18} />
+                Llamar
+              </button>
+            </div>
+          </section>
+        </main>
+
+        <BottomNav />
+      </div>
+    );
+  }
+
+  if (showResults) {
+    return (
+      <div className="app">
+        <main className="results-page">
+          <header className="results-header">
+            <button
+              className="back-button"
+              onClick={goHome}
+            >
+              <ArrowLeft size={20} />
+            </button>
+
+            <div className="results-search">
+              <Search size={18} />
+
+              <input
+                value={search}
+                onChange={(event) =>
+                  setSearch(event.target.value)
+                }
+                onKeyDown={handleKeyDown}
+              />
+
+              {search && (
+                <button
+                  className="clear-search"
+                  onClick={() => setSearch("")}
+                >
+                  ×
+                </button>
+              )}
+            </div>
+
+            <button className="header-action">
+              <Bell size={19} />
+            </button>
+          </header>
+
+          <section className="results-content">
+            <div className="results-title">
+              <div>
+                <h2>
+                  {totalResults > 0
+                    ? "Encontramos opciones"
+                    : "No encontramos resultados"}
+                </h2>
+
+                <p>
+                  {totalResults > 0
+                    ? `${totalResults} opciones cerca tuyo`
+                    : "Probá con otra búsqueda"}
+                </p>
+              </div>
+
+              <div className="results-location">
+                <MapPin size={15} />
+                Olavarría
+              </div>
+            </div>
+
+            {filteredProducts.length > 0 && (
+              <section className="result-section">
+                <h3>Productos</h3>
+
+                <div className="results-list">
+                  {filteredProducts.map((product) => (
+                    <article
+                      className="result-card clickable"
+                      key={product.id}
+                      onClick={() =>
+                        setSelectedProduct(product)
+                      }
+                    >
+                      <div className="product-result-visual">
+                        <Wrench size={25} />
+                      </div>
+
+                      <div className="result-info">
+                        <h4>{product.name}</h4>
+
+                        <p className="brand">
+                          {product.brand}
+                        </p>
+
+                        <strong>
+                          {formatPrice(product.price)}
+                        </strong>
+
+                        <div className="result-meta">
+                          <span
+                            className={
+                              product.status === "Disponible"
+                                ? "status available"
+                                : "status pending"
+                            }
+                          >
+                            {product.status}
+                          </span>
+
+                          <button
+                            className="result-business"
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              openBusiness(
+                                product.business,
+                              );
+                            }}
+                          >
+                            {product.business}
+                          </button>
+
+                          <span>
+                            <MapPin size={13} />
+                            {product.distance} km
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="result-actions">
+                        <button
+                          className="icon-action whatsapp"
+                          onClick={(event) =>
+                            event.stopPropagation()
+                          }
+                        >
+                          <MessageCircle size={18} />
+                        </button>
+
+                        <button
+                          className="icon-action"
+                          onClick={(event) =>
+                            event.stopPropagation()
+                          }
+                        >
+                          <Navigation size={18} />
+                        </button>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {filteredServices.length > 0 && (
+              <section className="result-section">
+                <h3>Servicios</h3>
+
+                <div className="results-list">
+                  {filteredServices.map((service) => (
+                    <article
+                      className="result-card clickable"
+                      key={service.id}
+                      onClick={() =>
+                        setSelectedService(service)
+                      }
+                    >
+                      <div className="service-result-visual">
+                        <Wrench size={25} />
+                      </div>
+
+                      <div className="result-info">
+                        <h4>{service.name}</h4>
+
+                        <p className="brand">
+                          {service.specialty}
+                        </p>
+
+                        <div className="rating">
+                          <Star
+                            size={14}
+                            fill="currentColor"
+                          />
+                          {service.rating}
+                        </div>
+
+                        <div className="result-meta">
+                          <span
+                            className={
+                              service.status ===
+                              "Disponible hoy"
+                                ? "status available"
+                                : "status pending"
+                            }
+                          >
+                            {service.status}
+                          </span>
+
+                          <span>{service.business}</span>
+
+                          <span>
+                            <MapPin size={13} />
+                            {service.distance} km
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="result-actions">
+                        <button
+                          className="icon-action whatsapp"
+                          onClick={(event) =>
+                            event.stopPropagation()
+                          }
+                        >
+                          <MessageCircle size={18} />
+                        </button>
+
+                        <button
+                          className="icon-action"
+                          onClick={(event) =>
+                            event.stopPropagation()
+                          }
+                        >
+                          <Phone size={18} />
+                        </button>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {totalResults === 0 && (
+              <div className="empty-state">
+                <div className="empty-icon">
+                  <Search size={34} />
+                </div>
+
+                <h3>Probemos otra búsqueda</h3>
+
+                <p>
+                  Podés buscar un producto, un comercio o
+                  un servicio.
+                </p>
+              </div>
+            )}
+          </section>
+        </main>
+
+        <BottomNav />
+      </div>
+    );
+  }
+
+  return (
+    <div className="app">
+      <main className="home">
+        <header className="home-header">
+          <div className="brand">
+            <h1>
+              Necesito<span>...</span>
+            </h1>
+          </div>
+
+          <button className="header-action">
+            <Bell size={19} />
+          </button>
+        </header>
+
+        <section className="hero-search">
+          <p className="eyebrow">
+            OLAVARRÍA
+          </p>
+
+          <h2>
+            ¿Qué <span>necesitás?</span>
+          </h2>
+
+          <p className="hero-description">
+            Encontrá productos y servicios
+            <br />
+            cerca tuyo en segundos.
+          </p>
+
+          <div className="search-box">
+            <Search size={21} />
+
+            <input
+              type="text"
+              value={search}
+              onChange={(event) =>
+                setSearch(event.target.value)
+              }
+              onKeyDown={handleKeyDown}
+              placeholder="Escribí lo que buscás..."
+              autoFocus
+            />
+          </div>
+
+          <button className="location-selector">
+            <MapPin size={17} />
+            <span>Olavarría</span>
+            <span className="location-arrow">⌄</span>
+          </button>
+        </section>
+
+        <section className="quick-section">
+          <div className="quick-heading">
+            <h3>Buscá algo rápido</h3>
+          </div>
+
+          <div className="quick-grid">
+            <button
+              onClick={() => searchCategory("ferreteria")}
+              className="quick-card"
+            >
+              <span className="quick-icon">
+                <Wrench size={25} />
+              </span>
+              <span>Ferretería</span>
+            </button>
+
+            <button
+              onClick={() => searchCategory("plomero")}
+              className="quick-card"
+            >
+              <span className="quick-icon">
+                <Droplets size={25} />
+              </span>
+              <span>Plomería</span>
+            </button>
+
+            <button
+              onClick={() =>
+                searchCategory("electricista")
+              }
+              className="quick-card"
+            >
+              <span className="quick-icon">
+                <Zap size={25} />
+              </span>
+              <span>Electricidad</span>
+            </button>
+
+            <button
+              onClick={() => searchCategory("pintor")}
+              className="quick-card"
+            >
+              <span className="quick-icon">
+                <PaintRoller size={25} />
+              </span>
+              <span>Pintura</span>
+            </button>
+
+            <button
+              onClick={() =>
+                searchCategory("carpintero")
+              }
+              className="quick-card"
+            >
+              <span className="quick-icon">
+                <Grid2X2 size={25} />
+              </span>
+              <span>Carpintería</span>
+            </button>
+
+            <button
+              onClick={() => searchCategory("servicios")}
+              className="quick-card"
+            >
+              <span className="quick-icon more">
+                <Grid2X2 size={23} />
+              </span>
+              <span>Ver más</span>
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <BottomNav />
+    </div>
+  );
+}
+
+function BottomNav() {
+  return (
+    <nav className="bottom-nav">
+      <button className="nav-item active">
+        <Search size={21} />
+        <span>Buscar</span>
+      </button>
+
+      <button className="nav-item">
+        <Heart size={21} />
+        <span>Favoritos</span>
+      </button>
+
+      <button className="nav-item">
+        <UserRound size={21} />
+        <span>Perfil</span>
+      </button>
+    </nav>
+  );
+}
+
+export default App;
