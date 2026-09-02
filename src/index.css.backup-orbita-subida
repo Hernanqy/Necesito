@@ -3553,19 +3553,3 @@ body {
     transform: scale(.82) !important;
   }
 }
-
-/* =========================================================
-   ORBITA + LOGO — SUBIR CONJUNTO EN CELULAR
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-  .splash-screen::before {
-    top: 44% !important;
-  }
-
-  .splash-screen .splash-logo {
-    top: -6% !important;
-  }
-
-}
