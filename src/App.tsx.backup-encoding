@@ -62,30 +62,30 @@ type Business = {
 
 const businesses: Business[] = [
   {
-    name: "Ferretería Todo Casa",
-    category: "Ferretería",
+    name: "FerreterÃƒÂ­a Todo Casa",
+    category: "FerreterÃƒÂ­a",
     rating: 4.6,
-    address: "Rivadavia 3225, Olavarría",
+    address: "Rivadavia 3225, OlavarrÃƒÂ­a",
     distance: 1.2,
-    hours: "Lunes a sábados 8:30 a 19:00",
+    hours: "Lunes a sÃƒÂ¡bados 8:30 a 19:00",
     phone: "2284 42-1234",
     whatsapp: "2284 42-1234",
   },
   {
-    name: "Ferretería Galarza",
-    category: "Ferretería",
+    name: "FerreterÃƒÂ­a Galarza",
+    category: "FerreterÃƒÂ­a",
     rating: 4.3,
-    address: "España 3103, Olavarría",
+    address: "EspaÃƒÂ±a 3103, OlavarrÃƒÂ­a",
     distance: 2.1,
-    hours: "Lunes a sábados 8:30 a 19:30",
+    hours: "Lunes a sÃƒÂ¡bados 8:30 a 19:30",
     phone: "2284 43-5678",
     whatsapp: "2284 43-5678",
   },
   {
-    name: "Ferretería Industrial",
-    category: "Ferretería",
+    name: "FerreterÃƒÂ­a Industrial",
+    category: "FerreterÃƒÂ­a",
     rating: 4.7,
-    address: "Alberdi 2800, Olavarría",
+    address: "Alberdi 2800, OlavarrÃƒÂ­a",
     distance: 2.4,
     hours: "Lunes a viernes 8:00 a 18:00",
     phone: "2284 41-9876",
@@ -100,11 +100,11 @@ const products: Product[] = [
     brand: "Stanley",
     price: 25000,
     status: "Disponible",
-    business: "Ferretería Todo Casa",
-    category: "Ferretería",
+    business: "FerreterÃƒÂ­a Todo Casa",
+    category: "FerreterÃƒÂ­a",
     distance: 1.2,
-    address: "Rivadavia 3225, Olavarría",
-    hours: "Lunes a sábados 8:30 a 19:00",
+    address: "Rivadavia 3225, OlavarrÃƒÂ­a",
+    hours: "Lunes a sÃƒÂ¡bados 8:30 a 19:00",
     stock: 3,
     updated: "hace 2 horas",
   },
@@ -114,12 +114,12 @@ const products: Product[] = [
     brand: "Bremen",
     price: 23500,
     status: "Consultar disponibilidad",
-    business: "Ferretería Galarza",
-    category: "Ferretería",
+    business: "FerreterÃƒÂ­a Galarza",
+    category: "FerreterÃƒÂ­a",
     distance: 2.1,
-    address: "España 3103, Olavarría",
-    hours: "Lunes a sábados 8:30 a 19:30",
-    updated: "hace 1 día",
+    address: "EspaÃƒÂ±a 3103, OlavarrÃƒÂ­a",
+    hours: "Lunes a sÃƒÂ¡bados 8:30 a 19:30",
+    updated: "hace 1 dÃƒÂ­a",
   },
   {
     id: 3,
@@ -127,10 +127,10 @@ const products: Product[] = [
     brand: "Bahco",
     price: 18500,
     status: "Disponible",
-    business: "Ferretería Industrial",
-    category: "Ferretería",
+    business: "FerreterÃƒÂ­a Industrial",
+    category: "FerreterÃƒÂ­a",
     distance: 2.4,
-    address: "Alberdi 2800, Olavarría",
+    address: "Alberdi 2800, OlavarrÃƒÂ­a",
     hours: "Lunes a viernes 8:00 a 18:00",
     stock: 8,
     updated: "hace 3 horas",
@@ -141,11 +141,11 @@ const products: Product[] = [
     brand: "Bosch",
     price: 185000,
     status: "Disponible",
-    business: "Ferretería Todo Casa",
-    category: "Ferretería",
+    business: "FerreterÃƒÂ­a Todo Casa",
+    category: "FerreterÃƒÂ­a",
     distance: 1.2,
-    address: "Rivadavia 3225, Olavarría",
-    hours: "Lunes a sábados 8:30 a 19:00",
+    address: "Rivadavia 3225, OlavarrÃƒÂ­a",
+    hours: "Lunes a sÃƒÂ¡bados 8:30 a 19:00",
     stock: 2,
     updated: "hace 3 horas",
   },
@@ -155,55 +155,55 @@ const products: Product[] = [
     brand: "Stanley",
     price: 12500,
     status: "Disponible",
-    business: "Ferretería Galarza",
-    category: "Ferretería",
+    business: "FerreterÃƒÂ­a Galarza",
+    category: "FerreterÃƒÂ­a",
     distance: 2.1,
-    address: "España 3103, Olavarría",
-    hours: "Lunes a sábados 8:30 a 19:30",
+    address: "EspaÃƒÂ±a 3103, OlavarrÃƒÂ­a",
+    hours: "Lunes a sÃƒÂ¡bados 8:30 a 19:30",
     stock: 8,
-    updated: "hace 1 día",
+    updated: "hace 1 dÃƒÂ­a",
   },
 ];
 
 const services: Service[] = [
   {
     id: 1,
-    name: "Juan Pérez",
-    specialty: "Plomería general",
+    name: "Juan PÃƒÂ©rez",
+    specialty: "PlomerÃƒÂ­a general",
     rating: 4.8,
     status: "Disponible hoy",
-    business: "Juan Pérez Plomería",
-    category: "Plomería",
+    business: "Juan PÃƒÂ©rez PlomerÃƒÂ­a",
+    category: "PlomerÃƒÂ­a",
     distance: 1.4,
-    address: "Olavarría",
-    hours: "Lunes a sábados 8:00 a 20:00",
+    address: "OlavarrÃƒÂ­a",
+    hours: "Lunes a sÃƒÂ¡bados 8:00 a 20:00",
     updated: "hace 1 hora",
   },
   {
     id: 2,
-    name: "Servicios López",
-    specialty: "Plomería y gas",
+    name: "Servicios LÃƒÂ³pez",
+    specialty: "PlomerÃƒÂ­a y gas",
     rating: 4.6,
     status: "Disponible hoy",
-    business: "Servicios López",
-    category: "Plomería",
+    business: "Servicios LÃƒÂ³pez",
+    category: "PlomerÃƒÂ­a",
     distance: 2.1,
-    address: "Olavarría",
-    hours: "Lunes a sábados 8:00 a 19:00",
+    address: "OlavarrÃƒÂ­a",
+    hours: "Lunes a sÃƒÂ¡bados 8:00 a 19:00",
     updated: "hace 4 horas",
   },
   {
     id: 3,
-    name: "MN Plomería",
-    specialty: "Plomería general",
+    name: "MN PlomerÃƒÂ­a",
+    specialty: "PlomerÃƒÂ­a general",
     rating: 4.5,
     status: "Consultar disponibilidad",
-    business: "MN Plomería",
-    category: "Plomería",
+    business: "MN PlomerÃƒÂ­a",
+    category: "PlomerÃƒÂ­a",
     distance: 2.7,
-    address: "Olavarría",
+    address: "OlavarrÃƒÂ­a",
     hours: "Lunes a viernes 8:00 a 18:00",
-    updated: "hace 1 día",
+    updated: "hace 1 dÃƒÂ­a",
   },
 ];
 
@@ -436,7 +436,7 @@ if (showSplash) {
             <div className="business-rating">
               <Star size={16} fill="currentColor" />
               <strong>{selectedBusiness.rating}</strong>
-              <span>Valoración</span>
+              <span>ValoraciÃƒÂ³n</span>
             </div>
 
             <div className="business-info">
@@ -462,7 +462,7 @@ if (showSplash) {
             <div className="business-actions">
               <button className="primary-action">
                 <Navigation size={18} />
-                Cómo llegar
+                CÃƒÂ³mo llegar
               </button>
 
               <button className="secondary-action">
@@ -597,7 +597,7 @@ if (showSplash) {
 
               {selectedProduct.stock !== undefined && (
                 <div className="stock">
-                  <span>&#10003;</span>
+                  <span>Ã¢â€”Â</span>
                   {selectedProduct.stock} unidades informadas
                 </div>
               )}
@@ -606,7 +606,7 @@ if (showSplash) {
             <div className="detail-actions">
               <button className="primary-action">
                 <Navigation size={18} />
-                Cómo llegar
+                CÃƒÂ³mo llegar
               </button>
 
               <button className="secondary-action">
@@ -694,10 +694,10 @@ if (showSplash) {
               <h3>Servicios</h3>
 
               <div className="service-tags">
-        <span>&#10003; Reparaciones</span>
-        <span>&#10003; Pérdidas de agua</span>
-        <span>&#10003; Instalaciones</span>
-        <span>&#10003; Mantenimiento</span>
+                <span>Ã¢Å“â€œ Reparaciones</span>
+                <span>Ã¢Å“â€œ PÃƒÂ©rdidas de agua</span>
+                <span>Ã¢Å“â€œ Instalaciones</span>
+                <span>Ã¢Å“â€œ Mantenimiento</span>
               </div>
             </div>
 
@@ -748,7 +748,7 @@ if (showSplash) {
                   className="clear-search"
                   onClick={() => setSearch("")}
                 >
-                  Ã—
+                  Ãƒâ€”
                 </button>
               )}
             </div>
@@ -770,13 +770,13 @@ if (showSplash) {
                 <p>
                   {totalResults > 0
                     ? `${totalResults} opciones cerca tuyo`
-                    : "Probá con otra búsqueda"}
+                    : "ProbÃƒÂ¡ con otra bÃƒÂºsqueda"}
                 </p>
               </div>
 
               <div className="results-location">
                 <MapPin size={15} />
-                Olavarría
+                OlavarrÃƒÂ­a
               </div>
             </div>
 
@@ -947,10 +947,10 @@ if (showSplash) {
                   <Search size={34} />
                 </div>
 
-                <h3>Probemos otra búsqueda</h3>
+                <h3>Probemos otra bÃƒÂºsqueda</h3>
 
                 <p>
-                  Podés buscar un producto, un comercio o
+                  PodÃƒÂ©s buscar un producto, un comercio o
                   un servicio.
                 </p>
               </div>
@@ -980,15 +980,15 @@ if (showSplash) {
 
         <section className="hero-search">
           <p className="eyebrow">
-            OLAVARRÍA
+            OLAVARRÃƒÂA
           </p>
 
           <h2>
-            ¿Qué <span>necesitás?</span>
+            Ã‚Â¿QuÃƒÂ© <span>necesitÃƒÂ¡s?</span>
           </h2>
 
           <p className="hero-description">
-            Encontrá productos y servicios
+            EncontrÃƒÂ¡ productos y servicios
             <br />
             cerca tuyo en segundos.
           </p>
@@ -1003,21 +1003,21 @@ if (showSplash) {
                 setSearch(event.target.value)
               }
               onKeyDown={handleKeyDown}
-              placeholder="Escribí lo que buscás..."
+              placeholder="EscribÃƒÂ­ lo que buscÃƒÂ¡s..."
               autoFocus
             />
           </div>
 
           <button className="location-selector">
             <MapPin size={17} />
-            <span>Olavarría</span>
-            <span className="location-arrow">&#8964;</span>
+            <span>OlavarrÃƒÂ­a</span>
+            <span className="location-arrow">Ã¢Å’â€ž</span>
           </button>
         </section>
 
         <section className="quick-section">
           <div className="quick-heading">
-            <h3>Buscá algo rápido</h3>
+            <h3>BuscÃƒÂ¡ algo rÃƒÂ¡pido</h3>
           </div>
 
           <div className="quick-grid">
@@ -1028,7 +1028,7 @@ if (showSplash) {
               <span className="quick-icon">
                 <Wrench size={25} />
               </span>
-              <span>Ferretería</span>
+              <span>FerreterÃƒÂ­a</span>
             </button>
 
             <button
@@ -1038,7 +1038,7 @@ if (showSplash) {
               <span className="quick-icon">
                 <Droplets size={25} />
               </span>
-              <span>Plomería</span>
+              <span>PlomerÃƒÂ­a</span>
             </button>
 
             <button
@@ -1072,7 +1072,7 @@ if (showSplash) {
               <span className="quick-icon">
                 <Grid2X2 size={25} />
               </span>
-              <span>Carpintería</span>
+              <span>CarpinterÃƒÂ­a</span>
             </button>
 
             <button
@@ -1082,7 +1082,7 @@ if (showSplash) {
               <span className="quick-icon more">
                 <Grid2X2 size={23} />
               </span>
-              <span>Ver más</span>
+              <span>Ver mÃƒÂ¡s</span>
             </button>
           </div>
         </section>

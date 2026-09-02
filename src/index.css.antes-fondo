@@ -1646,30 +1646,3 @@ button {
     bottom: 12%;
   }
 }
-/* ==========================================
-   FONDO NECESITO - INDEX
-   ========================================== */
-
-html,
-body,
-#root {
-  min-height: 100vh !important;
-  margin: 0 !important;
-}
-
-body {
-  background-image: url("/fondo-necesito.png") !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-}
-
-#root {
-  min-height: 100vh !important;
-  background: transparent !important;
-}
-
-.app {
-  min-height: 100vh !important;
-  background: transparent !important;
-}

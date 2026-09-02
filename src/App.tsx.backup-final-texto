@@ -597,7 +597,7 @@ if (showSplash) {
 
               {selectedProduct.stock !== undefined && (
                 <div className="stock">
-                  <span>&#10003;</span>
+                  <span>â—</span>
                   {selectedProduct.stock} unidades informadas
                 </div>
               )}
@@ -694,10 +694,10 @@ if (showSplash) {
               <h3>Servicios</h3>
 
               <div className="service-tags">
-        <span>&#10003; Reparaciones</span>
-        <span>&#10003; Pérdidas de agua</span>
-        <span>&#10003; Instalaciones</span>
-        <span>&#10003; Mantenimiento</span>
+                <span>âœ“ Reparaciones</span>
+                <span>âœ“ Pérdidas de agua</span>
+                <span>âœ“ Instalaciones</span>
+                <span>âœ“ Mantenimiento</span>
               </div>
             </div>
 
@@ -1011,7 +1011,7 @@ if (showSplash) {
           <button className="location-selector">
             <MapPin size={17} />
             <span>Olavarría</span>
-            <span className="location-arrow">&#8964;</span>
+            <span className="location-arrow">âŒ„</span>
           </button>
         </section>
 
