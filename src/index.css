@@ -1474,3 +1474,175 @@ button {
     bottom: 12px;
   }
 }
+/* =================================
+   SPLASH SCREEN
+   ================================= */
+
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(73, 160, 246, 0.09),
+      transparent 34%
+    ),
+    #ffffff;
+
+  animation: splashBackground 5s ease forwards;
+
+  overflow: hidden;
+}
+
+.splash-logo {
+  width: min(330px, 72vw);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: splashLogo 5s cubic-bezier(.22,.61,.36,1) forwards;
+}
+
+.splash-logo img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+
+.splash-loading {
+  position: absolute;
+
+  bottom: 13%;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  animation: splashLoading 5s ease forwards;
+}
+
+.splash-loading span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #287ce9;
+
+  animation: splashDots 1s ease-in-out infinite;
+}
+
+.splash-loading span:nth-child(2) {
+  animation-delay: .15s;
+}
+
+.splash-loading span:nth-child(3) {
+  animation-delay: .3s;
+}
+
+@keyframes splashLogo {
+
+  0% {
+    opacity: 0;
+    transform: scale(.72);
+  }
+
+  18% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  62% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.32) translateY(-4px);
+  }
+}
+
+@keyframes splashBackground {
+
+  0% {
+    opacity: 1;
+  }
+
+  72% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes splashLoading {
+
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes splashDots {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: .45;
+  }
+
+  50% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+/* =================================
+   LOGO COMO ELEMENTO DE MARCA
+   ================================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand h1 {
+  letter-spacing: -1.2px;
+}
+
+@media (max-width: 650px) {
+
+  .splash-logo {
+    width: min(290px, 76vw);
+  }
+
+  .splash-loading {
+    bottom: 12%;
+  }
+}
