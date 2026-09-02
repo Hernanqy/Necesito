@@ -3569,14 +3569,3 @@ body {
   }
 
 }
-/* =========================================================
-   LOGO UN POCO MÁS PEQUEÑO
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-  .splash-screen .splash-logo {
-    transform: scale(.75) !important;
-  }
-
-}
